@@ -120,6 +120,8 @@ print("HTML email file created successfully!")
 sender_email = os.environ["SENDER_EMAIL"]
 receiver_email = os.environ["RECIEVER_EMAIL"]
 app_password = os.environ["APP_PASSWORD"]
+if not sender_email or not reciever_email or not app_password:
+    raise ValueError("One or more Github secrets are missing")
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "Daily Top News Headlines - " + datetime.now().strftime("%d-%m-%Y %H:%M")
@@ -140,3 +142,4 @@ try:
 except Exception as e:
     print("Email sending failed.")
     print(e)
+    raise
