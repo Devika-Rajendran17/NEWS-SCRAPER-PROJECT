@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 import os
+from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -121,7 +122,7 @@ receiver_email = os.getenv("devikar1017@gmail.com")
 app_password = os.getenv("mqpf etzm isbi lviq")
 
 message = MIMEMultipart("alternative")
-message["Subject"] = "Daily Top News Headlines"
+message["Subject"] = "Daily Top News Headlines - " + datetime.now().strftime("%d-%m-%Y %H:%M")
 message["From"] = sender_email
 message["To"] = receiver_email
 
