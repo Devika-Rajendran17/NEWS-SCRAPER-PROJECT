@@ -117,9 +117,9 @@ with open("news_email.html", "w", encoding="utf-8") as file:
     file.write(html_content)
 
 print("HTML email file created successfully!")
-sender_email = os.getenv("devikar1017@gmail.com")
-receiver_email = os.getenv("devikar1017@gmail.com")
-app_password = os.getenv("mqpf etzm isbi lviq")
+sender_email = os.getenv("SENDER_EMAIL")
+receiver_email = os.getenv("RECIEVER_EMAIL")
+app_password = os.getenv("APP_PASSWORD")
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "Daily Top News Headlines - " + datetime.now().strftime("%d-%m-%Y %H:%M")
